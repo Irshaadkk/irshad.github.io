@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>J</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional: Bootstrap JS (if you use components like modals, carousels, etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: white;
+        }
+
+        h1 {
+            color: #01fe33;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        p {
+            text-align: center;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        form {
+            background-color: #111;
+            max-width: 700px;
+            margin: auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(1, 254, 51, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #01fe33;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #222;
+            color: white;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #01fe33;
+            color: black;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00c926;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #01fe33;
+            margin: 30px auto;
+            width: 80%;
+        }
+
+        em {
+            color: #01fe33;
+        }
+        .navbar {
+            background-color: #111;
+            padding: 15px 20px;
+            text-align: right;
+        }
+
+        .navbar a {
+            color: rgb(89, 255, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+     <nav class="navbar navbar-dark" style="background-color: #111;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="home(1).html" style="color: #01fe33;">Vishwa Shauryam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(70%) sepia(100%) saturate(1000%) hue-rotate(80deg);"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #111;">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: #01fe33;">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home(1).html" style="color: #01fe33;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUS.html" style="color: #01fe33;">About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #01fe33;">
+                                Events
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
+                                <li><a class="dropdown-item" href="Events.CSS.html">Upcoming Events</a></li>
+                                <li><a class="dropdown-item" href="gallery.CSS.html">Gallery</a></li>
+                                <li><a class="dropdown-item" href="story.html">Story</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sponsors.CSS.html" target="_blank" style="color: #01fe33;">Sponsors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Joinus.CSS.html" style="color: #01fe33;">Join Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.CSS.html" style="color: #01fe33;">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    </div>
+
+    <h1><strong>Join Vihwa Shuryam</strong></h1>
+
+    <p>
+        Are you passionate about racing, design, innovation, or teamwork? <br>
+        Vihwa Shuryam offers a platform to apply your skills, learn real-world engineering, and compete on national stages.
+        <br><br>
+        <strong>Fill out the form below to become a part of our journey!</strong>
+    </p>
+
+    <hr>
+
+    <form id="joinForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="16" max="99" required>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="dept">Department:</label>
+        <input type="text" id="dept" name="dept" required>
+
+        <label for="role">Select Area of Interest:</label>
+        <select id="role" name="role" required>
+            <option value="">-- Select --</option>
+            <option value="powertrain">Powertrain</option>
+            <option value="suspension">Suspension</option>
+            <option value="electronics">Electronics</option>
+            <option value="aerodynamics">Aerodynamics</option>
+            <option value="marketing">Marketing & Sponsorship</option>
+            <option value="management">Team Management</option>
+            <option value="design">CAD & Product Design</option>
+            <option value="data">Data Acquisition & Analysis</option>
+        </select>
+
+        <label for="reason">Why do you want to join Vihwa Shuryam?</label>
+        <textarea id="reason" name="reason" rows="4" cols="50" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+
+    <p>
+        <em>Be a part of something fast, focused, and future-driven. <br>
+        Join the legacy, drive innovation, and race with Vihwa Shuryam!</em>
+    </p>
+
+    <script>
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop form from actually submitting
+
+            const data = new FormData(this);
+            let text = 'Vihwa Shuryam Form Submission\n-----------------------------\n\n';
+            for (const [key, value] of data.entries()) {
+                text += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\n`;
+            }
+
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'vihwa_shuryam_join_form.txt';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Veloce Racing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional: Bootstrap JS (if you use components like modals, carousels, etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    :root {
+      --mlsc-blue: #0078d4;
+      --mlsc-light-blue: #00bfff;
+      --mlsc-dark-blue: #005a9e;
+      --transition-speed: 0.3s;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    h1, h2 {
+      color: #01fe33;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    p, ul {
+      font-size: 1.1rem;
+      text-align: center;
+      margin: 15px 30px;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #01fe33;
+      margin: 30px auto;
+      width: 80%;
+    }
+
+    table {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 20px;
+      color: white;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 20px;
+    }
+
+    a {
+      color: #01fe33;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    strong {
+      color: #01fe33;
+    }
+
+    .contact-group p {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    .navbar {
+      background-color: #111;
+      padding: 15px 20px;
+      text-align: right;
+    }
+
+    .navbar a {
+      color: rgb(89, 255, 0);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        display: block;
+        width: 100%;
+      }
+      td {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+      }
+      p, ul {
+        text-align: left;
+        margin: 15px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Admin Panel */
+    .admin-panel-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1001;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: background-color var(--transition-speed), transform 0.2s ease;
+      font-size: 1em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-panel-toggle:hover {
+      background-color: #e67e22;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .admin-panel {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 400px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: -8px 0 25px rgba(0,0,0,0.4);
+      z-index: 1002;
+      padding: 30px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      border-left: 5px solid var(--mlsc-blue);
+    }
+
+    .admin-panel.active {
+      right: 0;
+    }
+
+    .admin-panel .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.2em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--transition-speed), transform 0.2s ease;
+    }
+
+    .admin-panel .close-btn:hover {
+      background-color: #c82333;
+      transform: rotate(90deg);
+    }
+
+    .admin-panel h3 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--mlsc-blue);
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .admin-panel h4 {
+      color: #333;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    .admin-panel input[type="text"],
+    .admin-panel input[type="password"],
+    .admin-panel textarea,
+    .admin-panel select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    .admin-panel textarea {
+      resize: vertical;
+    }
+
+    .admin-panel button {
+      background-color: var(--mlsc-blue);
+      color: white;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .admin-panel button:hover {
+      background-color: var(--mlsc-dark-blue);
+    }
+
+    .admin-panel .admin-logout-btn {
+      background-color: #dc3545;
+    }
+
+    .admin-panel .admin-logout-btn:hover {
+      background-color: #c82333;
+    }
+
+    .login-status, .success-message {
+      text-align: center;
+      font-size: 0.95em;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .login-status {
+      color: #c0392b;
+    }
+
+    .success-message {
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark" style="background-color: #111;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="home(1).html" style="color: #01fe33;">Vishwa Shauryam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(70%) sepia(100%) saturate(1000%) hue-rotate(80deg);"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #111;">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: #01fe33;">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home(1).html" style="color: #01fe33;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUS.html" style="color: #01fe33;">About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #01fe33;">
+                                Events
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
+                                <li><a class="dropdown-item" href="Events.CSS.html">Upcoming Events</a></li>
+                                <li><a class="dropdown-item" href="gallery.CSS.html">Gallery</a></li>
+                                <li><a class="dropdown-item" href="story.html">Story</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sponsors.CSS.html" target="_blank" style="color: #01fe33;">Sponsors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Joinus.CSS.html" style="color: #01fe33;">Join Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.CSS.html" style="color: #01fe33;">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<h1><strong>Contact Us</strong></h1>
+<p>We'd love to hear from you! Whether you have questions, suggestions, or want to get involved, feel free to reach out to us.</p>
+<hr>
+
+<h2>General Contact Information</h2>
+<p>Email: <a href="mailto:vihwashuryam@vit.edu">vihwashuryam@vit.edu</a></p>
+<p>Phone: <a href="tel:+919876543210">+91-9876543210</a></p>
+<hr>
+
+<h2>Contact Club Leaders</h2>
+<table>
+  <tr>
+    <td class="contact-group">
+      <p><strong>President - Vishwa Shuryam</strong><br>Email: <a href="#">vishwa.shuryam@vit.edu</a><br>Phone: <a href="#">+91-9876543211</a></p>
+      <p><strong>Vice President - Aarav Mehta</strong><br>Email: <a href="#">aarav.mehta@vit.edu</a><br>Phone: <a href="#">+91-9876543212</a></p>
+      <p><strong>Technical Lead - Riya Sharma</strong><br>Email: <a href="#">riya.sharma@vit.edu</a><br>Phone: <a href="#">+91-9876543213</a></p>
+      <p><strong>Powertrain Engineer - Isha Rane</strong></p>
+      <p><strong>Suspension Engineer - Aditya Singh</strong></p>
+      <p><strong>Design Coordinator - Meera Nair</strong></p>
+    </td>
+    <td class="contact-group">
+      <p><strong>Finance Head - Sneha Patil</strong><br>Email: <a href="#">sneha.patil@vit.edu</a><br>Phone: <a href="#">+91-9876543214</a></p>
+      <p><strong>Aerodynamics Lead - Manav Desai</strong><br>Email: <a href="#">manav.desai@vit.edu</a><br>Phone: <a href="#">+91-9876543215</a></p>
+      <p><strong>Electronics Head - Neha Joshi</strong><br>Email: <a href="#">neha.joshi@vit.edu</a><br>Phone: <a href="#">+91-9876543216</a></p>
+      <p><strong>Media Manager - Ananya Ghosh</strong></p>
+      <p><strong>Testing Lead - Snehal Pawar</strong></p>
+      <p><strong>Workshop Coordinator - Rohan Nair</strong></p>
+    </td>
+  </tr>
+</table>
+<hr>
+
+<h2>Connect with Us on Social Media</h2>
+<ul>
+  <li><a href="https://www.instagram.com/vishwa_shauryam?igsh=eDAzazd0bzFvY2Nn" target="_blank">Instagram</a></li>
+  <li><a href="https://www.linkedin.com/company/vishwa-shauryam-vit-pune/?fbclid=PAQ0xDSwKlUdlleHRuA2FlbQIxMAABp578YrzU2P6-wPS7IHl8ihI1zu-_GzXdc5eyOvk--piDuNyAkT3afCdoeQDu_aem_5yyXYjam5oQBkodPmfx9Ww" target="_blank">LinkedIn</a></li>
+</ul>
+<button class="admin-panel-toggle" id="toggleAdminPanel">
+  <i class="fas fa-user-shield"></i> Admin Panel
+</button>
+
+<div class="admin-panel" id="adminPanel">
+  <button class="close-btn" id="closeAdminPanel"><i class="fas fa-times"></i></button>
+  <h3>Admin Login</h3>
+  <div id="loginSection">
+    <input type="text" id="adminUsername" placeholder="Username">
+    <input type="password" id="adminPassword" placeholder="Password">
+    <button id="adminLoginBtn">Login</button>
+    <p class="login-status" id="loginStatus"></p>
+  </div>
+  <div id="adminContent" style="display: none;">
+    <h4>Update Club Member Name</h4>
+    <select id="roleSelect">
+      <option value="">Select Role</option>
+      <option>President</option>
+      <option>Vice President</option>
+      <option>Technical Lead</option>
+      <option>Powertrain Engineer</option>
+      <option>Suspension Engineer</option>
+      <option>Design Coordinator</option>
+      <option>Finance Head</option>
+      <option>Aerodynamics Lead</option>
+      <option>Electronics Head</option>
+      <option>Media Manager</option>
+      <option>Testing Lead</option>
+      <option>Workshop Coordinator</option>
+    </select>
+    <input type="text" id="clubHeadName" placeholder="New Name">
+    <button id="updateClubHeadBtn">Update</button>
+    <p class="success-message" id="clubHeadStatus"></p>
+    <button class="admin-logout-btn" id="adminLogoutBtn">Logout</button>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  const ADMIN_USER = "irshad";
+  const ADMIN_PASS = "khan";
+
+  $('#toggleAdminPanel').on('click', () => $('#adminPanel').addClass('active'));
+  $('#closeAdminPanel').on('click', () => $('#adminPanel').removeClass('active'));
+
+  $('#adminLoginBtn').on('click', () => {
+    const user = $('#adminUsername').val();
+    const pass = $('#adminPassword').val();
+    if (user === ADMIN_USER && pass === ADMIN_PASS) {
+      $('#loginSection').hide();
+      $('#adminContent').show();
+      $('#loginStatus').text('');
+    } else {
+      $('#loginStatus').text('Invalid credentials');
+    }
+  });
+
+  $('#adminLogoutBtn').on('click', () => {
+    $('#adminContent').hide();
+    $('#loginSection').show();
+    $('#adminUsername').val('');
+    $('#adminPassword').val('');
+  });
+
+  $('#updateClubHeadBtn').on('click', () => {
+    const role = $('#roleSelect').val();
+    const name = $('#clubHeadName').val().trim();
+    if (!role) return $('#clubHeadStatus').text('Select a role.');
+    if (!name) return $('#clubHeadStatus').text('Enter a new name.');
+
+    let updated = false;
+    $('strong').each(function() {
+      const current = $(this).text();
+      if (current.startsWith(role + ' -') || current === role) {
+        $(this).text(role + ' - ' + name);
+        updated = true;
+      }
+    });
+
+    if (updated) {
+      $('#clubHeadStatus').text(role + ' updated!');
+      $('#clubHeadName').val('');
+      setTimeout(() => $('#clubHeadStatus').text(''), 2000);
+    } else {
+      $('#clubHeadStatus').text('Role not found on page.');
+    }
+  });
+    // <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

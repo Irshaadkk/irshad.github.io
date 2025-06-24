@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vishwa Shauryam VIT Pune - Home</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional: Bootstrap JS (if you use components like modals, carousels, etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        video.bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .navbar {
+            background-color: #111;
+            padding: 15px 20px;
+            text-align: right;
+        }
+
+        .navbar a {
+            color: rgb(89, 255, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background-color: rgb(6, 248, 14);
+            margin: 40px 0;
+            width: 80%;
+        }
+
+        h1, h2 {
+            color: rgb(0, 255, 26);
+        }
+
+        .section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            background-color: rgba(17, 17, 17, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255,140,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .section.alt {
+            background-color: rgba(26, 26, 26, 0.85);
+        }
+
+        .center-content {
+            text-align: center;
+        }
+
+        marquee {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #01fe33;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .image-row img {
+            height: 300px;
+            width: 500px;
+            border: 4px solid #01fe33;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .image-row img:hover {
+            transform: scale(1.03);
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            text-align: center;
+            padding: 30px 10px;
+            background-color: #111;
+            border-top: 2px solid #01fe33;
+        }
+
+        .social-links a {
+            color: #01fe33;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #01fe33;
+        }
+
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #01fe33;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgb(0, 255, 8);
+            z-index: 99;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: white;
+            color: #01fe33;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-left: 5px solid #01fe33;
+            overflow-x: auto;
+            font-size: 0.95em;
+            color: white;
+        }
+         body.dark-theme {
+      background-color: #000;
+      color: white;
+    }
+    body.light-theme {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body class="dark-theme">
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay loop muted>
+        <source src="k.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+     <nav class="navbar navbar-dark" style="background-color: #111;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="home(1).html" style="color: #01fe33;">Vishwa Shauryam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(70%) sepia(100%) saturate(1000%) hue-rotate(80deg);"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #111;">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: #01fe33;">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home(1).html" style="color: #01fe33;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUS.html" style="color: #01fe33;">About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        
+                            <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
+                                <li><a class="dropdown-item" href="Events.CSS.html">Upcoming Events</a></li>
+            
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sponsors.CSS.html" target="_blank" style="color: #01fe33;">Sponsors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Joinus.CSS.html" style="color: #01fe33;">Join Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.CSS.html" style="color: #01fe33;">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!-- 
+     <div class="navbar">
+        <a href="home(1).html">Home</a>
+        <a href="aboutUS.html">About Us</a>
+        <a href="Events.CSS.html">Upcoming Events</a>
+        <a href="sponsors.CSS.html" target="_blank">Sponsors</a>
+        <a href="Joinus.CSS.html">Join Us</a>
+        <a href="contact.CSS.html">Contact Us</a>
+        <a href="gallery.CSS.html">Gallery</a>
+        <a href="story.html">Story</a> -->
+
+    <!-- </div> -->
+    <!-- <button id="themeToggleBtn" class="btn btn-success position-fixed top-0 start-0 m-3 fw-bold shadow" style="z-index:100;">
+     Join Button in Footer -->
+    <footer class="text-center mt-4">
+        <button id="joinBtn" class="btn fw-bold shadow animate__animated animate__pulse animate__infinite"
+            style="background-color: #3c0b98; color: #111; font-size: 2em; padding: 18px 48px; border-radius: 50px; border: none; box-shadow: 0 0 20px #01fe33;">
+            Join Vishwa Shauryam
+        </button>
+        <!-- Animate.css CDN for animation -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <p id="timeFooter"></p>
+    </footer>
+    <script>
+        // Join button click navigates to Join page
+        document.getElementById('joinBtn').addEventListener('click', () => {
+            window.location.href = 'Joinus.CSS.html';
+        });
+    </script>
+
+
+</script>
+
+    <div class="section center-content">
+        <h1>Welcome to Vishwa Shauryam VIT Pune</h1>
+        <p>The official defence Student team of Vishwakarma Institute of Technology</p>
+        <marquee behavior="scroll" direction="left">
+            <b><i>Vishwa Shauryam – Discipline. Leadership. Service.</i></b>
+        </marquee>
+        <div class="image-row">
+            <img src="i.jpg" alt="Team Photo">
+            <img src="jb.jpg" alt="New Image">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>What We Do</h2>
+        <p>
+           Vishwa Shauryam</strong> is a passionate, student-led club at <strong>VIT Pune</strong> dedicated to nurturing and guiding future officers of the Indian Armed Forces...</p>
+
+        <h3>Our Purpose</h3>
+        <p>Our goal is to instill defense values such as honor, integrity, and courage...</p>
+
+        <h3>What We Do</h3>
+        <p>We conduct regular training sessions, personality development workshops...</p>
+
+        <h3>Our Community</h3>
+        <p>We are a strong and dedicated group of individuals united by a common dream...</p>
+    </div>
+        </p>
+    </div>
+
+    <div class="section alt">
+        <h2>Our Vision</h2>
+        <p>
+            To inspire and prepare students for a career in the Indian Armed Forces by fostering discipline, leadership, and patriotism.
+            We strive to build a community that values service, integrity, and personal growth through training, mentorship, and teamwork.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Why Join Vishwa Shauryam?</h2>
+        <ul>
+            <li>Prepare for a career in the Indian Armed Forces</li>
+            <li>Develop leadership, discipline, and teamwork skills</li>
+            <li>Participate in defense-related workshops and training sessions</li>
+            <li>Connect with like-minded peers and experienced mentors</li>
+        </ul>
+    </div>
+
+    <div class="section alt">
+        <h2>Our Achievements</h2>
+        <ul>
+            <li>Organized successful defense workshops and seminars</li>
+            <li>Consistent participation in NCC and defense-related events</li>
+            <li>Alumni selected in Indian Armed Forces</li>
+            <li>Recognized for leadership and discipline initiatives on campus</li>
+        </ul>
+    </div>
+
+    <div class="section center-content">
+        <h2>Get Involved</h2>
+        <p>
+            Whether you're passionate about defense, leadership, or personal growth, Vishwa Shauryam offers a platform to develop your skills and serve the nation.
+            Join us and become part of a community dedicated to discipline, honor, and excellence.
+        </p>
+    </div>
+
+    <!-- Simulated Text File Display -->
+    <div class="section">
+        <h2>Team Statement</h2>
+        <pre>
+This is Vishwa Shauryam — united by discipline and inspired by service.
+From vision to valor, we nurture leaders for the nation.
+Join us in shaping the future of defense aspirants at VIT Pune.
+        </pre>
+    </div>
+        </pre>
+    </div>
+
+    <div class="social-links">
+        <h2>Follow Us:</h2>
+        <p>
+            <a href="https://www.instagram.com/vishwa_shauryam?igsh=eDAzazd0bzFvY2Nn" target="_blank">Instagram</a> |
+            <a href="https://www.linkedin.com/company/vishwa-shauryam-vit-pune/?fbclid=PAQ0xDSwKlUdlleHRuA2FlbQIxMAABp578YrzU2P6-wPS7IHl8ihI1zu-_GzXdc5eyOvk--piDuNyAkT3afCdoeQDu_aem_5yyXYjam5oQBkodPmfx9Ww" target="_blank">LinkedIn</a>
+        </p>
+    </div>
+    
+    </div>
+    <style>
+        body.light-theme {
+            background-color: #f7f7f7;
+            color: #222;
+        }
+        body.light-theme .navbar,
+        body.light-theme .social-links {
+            background-color: #e0ffe6;
+        }
+        body.light-theme .navbar a,
+        body.light-theme .social-links a {
+            color: #03ff13;
+        }
+        body.light-theme .navbar a:hover,
+        body.light-theme .social-links a:hover {
+            color: #111;
+        }
+        body.light-theme .section,
+        body.light-theme .section.alt {
+            background-color: rgba(255,255,255,0.92);
+            color: #222;
+            box-shadow: 0 0 15px rgba(0,128,0,0.15);
+        }
+        body.light-theme h1, 
+        body.light-theme h2, 
+        body.light-theme h3 {
+            color: #03ff13;
+        }
+        body.light-theme hr {
+            background-color: #03ff13;
+        }
+        body.light-theme .image-row img {
+            border-color: #03ff13;
+        }
+        body.light-theme pre {
+            background-color: #f0f0f0;
+            color: #222;
+            border-left: 5px solid #03ff13;
+        }
+        body.light-theme #scrollTopBtn {
+            background-color: #03ff13;
+            color: white;
+            box-shadow: 0 0 10px #03ff13;
+        }
+        body.light-theme #scrollTopBtn:hover {
+            background-color: #fff;
+            color: #03ff13;
+        }
+        body.light-theme footer {
+            color: #03ff13;
+        }
+        body.light-theme marquee {
+            color: #03ff13;
+        }
+        body.light-theme video.bg-video {
+            opacity: 0.12;
+        }
+    </style>
+    <script>
+        const themeBtn = document.getElementById('themeToggleBtn');
+        themeBtn.onclick = function() {
+            document.body.classList.toggle('light-theme');
+            themeBtn.textContent = document.body.classList.contains('light-theme') ? 'Switch Theme' : 'Switch Theme';
+        };
+    </script>
+    <footer>
+        <p id="timeFooter"></p>
+    </footer>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                const response = confirm("Welcome to Vishwa Shauryam! Want to join our team?");
+                if (response) {
+                    let role = prompt("Which area interests you? (e.g., Training, Events, Leadership, Media)");
+                    if (role) alert("Amazing! Stay tuned for openings in: " + role);
+                }
+            }, 700);
+            updateTime();
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onscroll = function () {
+            document.getElementById("scrollTopBtn").style.display =
+                document.body.scrollTop > 200 || document.documentElement.scrollTop > 200
+                    ? "block" : "none";
+        };
+  // Join button click navigates to Join page
+    document.getElementById('joinBtn').addEventListener('click', () => {
+      window.location.href = 'Joinus.CSS.html';
+    });
+
+    // Toggle theme button click switches between light and dark
+    const toggleBtn = document.getElementById('toggleThemeBtn');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      document.body.classList.toggle('dark-theme');
+    });
+        
+    </script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
